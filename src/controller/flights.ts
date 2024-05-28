@@ -27,9 +27,9 @@ interface queryParam {
   airline: string,
 }
 
-declare module "express-serve-static-core" {
-  interface Request {query: Partial<queryParam>;}
-}
+// declare module "express-serve-static-core" {
+//   interface Request {query: Partial<queryParam>;}
+// }
 
 const getDistanceBetweenAirports = async (code1: string, code2: string):Promise<number> => {
   return Promise.resolve(22)
