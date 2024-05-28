@@ -27,9 +27,9 @@ interface queryParam {
   airline: string,
 }
 
-// declare module "express-serve-static-core" {
-//   interface Request {query ?: queryParam}
-// }
+declare module "express-serve-static-core" {
+  interface Request {query: Partial<queryParam>;}
+}
 
 const getDistanceBetweenAirports = async (code1: string, code2: string):Promise<number> => {
   return Promise.resolve(22)
@@ -69,7 +69,7 @@ const getFlights = async(req: Request<queryParam>, res:Response) => {
       const flightDuration = arrivalTime.diff(departureTime, 'hours')
       const flightDistance = await getDistanceBetweenAirports(flight.origin, flight.destination);
 
-      if (flightDuration >= parseInt(duration)) {
+      if (duration && flightDuration >= parseInt(duration)) {
         continue
       }
 
