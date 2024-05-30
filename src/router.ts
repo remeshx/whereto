@@ -1,8 +1,6 @@
 import { Router } from "express";
-import express, {Response, Request} from "express";
-import { getFlights
-
- } from "./controller/flights";
+import express, { Response, Request } from "express";
+import { getFlights } from "./controller/flights";
 const router = Router();
 
 router.get('/flights', getFlights)
